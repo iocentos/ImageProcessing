@@ -1,0 +1,75 @@
+#compiler
+CC = g++ 
+#linker
+LD = g++
+#linker flags
+LDFLAGS = -Wall -g
+#compiler flags
+CFLAGS = -Wall -c -g -O3  
+#serial libraries
+S_LIBS = -ltiff -ljpeg -lpng -lz 
+
+#linker path
+LD_PATH = -L/home/centos/libraries/zlib/lib -L/home/centos/libraries/libtiff/lib -L/home/centos/libraries/libjpeg/lib -L/home/centos/libraries/libpng/lib
+#includes
+INCLUDE = -I/home/centos/libraries/
+#defines for serial program
+DEFS = -DSERIAL 
+#erase files
+RM = /bin/rm -f
+#object files
+S_OBJS =  TIFFimage.o JPEGimage.o PNGimage.o image.o  imageRaster.o serialImageProcessing.o main.o timer.o MemCheck.o 
+#program name
+PROG = serial 
+
+
+
+
+
+
+
+#first rule
+all : $(PROG)
+
+#serial executable
+serial : $(S_OBJS)
+	$(LD) $(LDFLAGS) $(LD_PATH) $(S_OBJS) $(S_LIBS) -o $@
+
+
+#%.o : %.cpp
+#	$(CC) $(CFLAGS) $(INCLUDE) $(DEFS) $<
+
+main.o : main.cpp
+	$(CC) $(CFLAGS) $(INCLUDE) $(DEFS) $< -o $@
+
+image.o : image.cpp
+	$(CC) $(CFLAGS) $(INCLUDE) $(DEFS) $< -o $@
+
+TIFFimage.o : TIFFimage.cpp 
+	$(CC) $(CFLAGS) $(DEFS) $(INCLUDE) -L/home/subuntu/libraries/libtiff/lib $< -o $@
+
+JPEGimage.o : JPEGimage.cpp 
+	$(CC) $(CFLAGS) $(DEFS) $(INCLUDE) -L/home/subuntu/libraries/libjpeg/lib $< -o $@
+
+PNGimage.o : PNGimage.cpp
+	$(CC) $(CFLAGS) $(DEFS) $(INCLUDE) -L/home/subuntu/libraries/libpng/lib -L/home/subuntu/libraries/zlib/lib $< -o $@
+
+
+imageRaster.o : imageRaster.cpp
+	$(CC) $(CFLAGS) $(DEFS) $< -o $@
+
+serialImageProcessing.o : serialImageProcessing.cpp
+	$(CC) $(CFLAGS) $(DEFS) $< -o $@
+
+timer.o : timer.cpp
+	$(CC) $(CFLAGS) $< -o $@
+
+MemCheck.o : MemCheck.cpp
+	$(CC) $(CFLAGS) $(DEFS) $< -o $@
+
+
+
+
+
+clean:
+	$(RM) $(S_OBJS) *~

@@ -1,0 +1,73 @@
+#compiler
+CC = g++ 
+#linker
+LD = g++
+#linker flags
+LDFLAGS = -Wall -g
+#compiler flags
+CFLAGS = -Wall -c -g -O3 -fcilkplus 
+#parallel libraries
+P_LIBS = -lcilkrts -ldl -ltiff -ljpeg -lpng -lz
+
+#linker path
+LD_PATH = -L/home/centos/libraries/zlib/lib -L/home/centos/libraries/libtiff/lib -L/home/centos/libraries/libjpeg/lib -L/home/centos/libraries/libpng/lib
+#includes
+INCLUDE = -I/home/centos/libraries/
+#defines for serial program
+DEFS = -DCILK_PARALLEL 
+#erase files
+RM = /bin/rm -f
+#parallel object files
+P_OBJS = TIFFimage.o JPEGimage.o PNGimage.o image.o imageRaster.o cilkImageProcessing.o cilkmain.o timer.o MemCheck.o
+#program name
+PROG = cilkplus
+
+
+
+
+
+
+
+#first rule
+all : $(PROG)
+
+
+cilkplus : $(P_OBJS)
+	$(LD) $(LDFLAGS) $(LD_PATH) $(P_OBJS) $(P_LIBS) -o $@
+
+#%.o : %.cpp
+#	$(CC) $(CFLAGS) $(INCLUDE) $(DEFS) $<
+
+cilkmain.o : cilkmain.cpp
+	$(CC) $(CFLAGS) $(INCLUDE) $(DEFS) $< -o $@
+
+image.o : image.cpp
+	$(CC) $(CFLAGS) $(INCLUDE) $(DEFS) $< -o $@
+
+TIFFimage.o : TIFFimage.cpp 
+	$(CC) $(CFLAGS) $(DEFS) $(INCLUDE) -L/home/subuntu/libraries/libtiff/lib $< -o $@
+
+JPEGimage.o : JPEGimage.cpp 
+	$(CC) $(CFLAGS) $(DEFS) $(INCLUDE) -L/home/subuntu/libraries/libjpeg/lib $< -o $@
+
+PNGimage.o : PNGimage.cpp
+	$(CC) $(CFLAGS) $(DEFS) $(INCLUDE) -L/home/subuntu/libraries/libpng/lib -L/home/subuntu/libraries/zlib/lib $< -o $@
+
+imageRaster.o : imageRaster.cpp
+	$(CC) $(CFLAGS) $(DEFS) $< -o $@
+
+cilkImageProcessing.o : cilkImageProcessing.cpp
+	$(CC) $(CFLAGS) $(DEFS) $< -o $@
+	
+timer.o : timer.cpp
+	$(CC) $(CFLAGS) $< -o $@
+
+MemCheck.o : MemCheck.cpp
+	$(CC) $(CFLAGS) $(DEFS) $< -o $@
+
+
+
+
+
+clean:
+	$(RM) $(P_OBJS) *~
