@@ -3,6 +3,7 @@
 
 #include "image.h"
 #include <stdio.h>
+#include "jpeglib.h"
 
 namespace IMAGE {
 

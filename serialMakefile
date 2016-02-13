@@ -10,7 +10,7 @@ CFLAGS = -Wall -c -g -O3
 S_LIBS = -ltiff -ljpeg -lpng -lz 
 
 #linker path
-LD_PATH = -L/home/centos/libraries/zlib/lib -L/home/centos/libraries/libtiff/lib -L/home/centos/libraries/libjpeg/lib -L/home/centos/libraries/libpng/lib
+LD_PATH = 
 #includes
 INCLUDE = -I/home/centos/libraries/
 #defines for serial program
@@ -46,13 +46,13 @@ image.o : image.cpp
 	$(CC) $(CFLAGS) $(INCLUDE) $(DEFS) $< -o $@
 
 TIFFimage.o : TIFFimage.cpp 
-	$(CC) $(CFLAGS) $(DEFS) $(INCLUDE) -L/home/subuntu/libraries/libtiff/lib $< -o $@
+	$(CC) $(CFLAGS) $(DEFS) $(INCLUDE) $< -o $@
 
 JPEGimage.o : JPEGimage.cpp 
-	$(CC) $(CFLAGS) $(DEFS) $(INCLUDE) -L/home/subuntu/libraries/libjpeg/lib $< -o $@
+	$(CC) $(CFLAGS) $(DEFS) $(INCLUDE) $< -o $@
 
 PNGimage.o : PNGimage.cpp
-	$(CC) $(CFLAGS) $(DEFS) $(INCLUDE) -L/home/subuntu/libraries/libpng/lib -L/home/subuntu/libraries/zlib/lib $< -o $@
+	$(CC) $(CFLAGS) $(DEFS) $(INCLUDE) $< -o $@
 
 
 imageRaster.o : imageRaster.cpp

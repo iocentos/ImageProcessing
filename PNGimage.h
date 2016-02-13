@@ -2,7 +2,7 @@
 #define _PNGIMAGE_H_
 
 #include "image.h"
-#include "libpng/include/png.h"
+#include "png.h"
 
 namespace IMAGE {
 

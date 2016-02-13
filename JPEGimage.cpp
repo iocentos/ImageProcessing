@@ -3,7 +3,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include "imageRaster.h"
-#include "libjpeg/include/jpeglib.h"
 
 
 

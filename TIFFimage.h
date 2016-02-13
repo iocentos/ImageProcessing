@@ -2,7 +2,7 @@
 #define _TIFF_IMAGE_H_
 
 #include <string>
-#include "libtiff/include/tiffio.h"
+#include "tiffio.h"
 #include "image.h"
 
 #ifdef DEBUG
