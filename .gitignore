@@ -1,0 +1,8 @@
+
+cilkplus
+openmp
+serial
+tags
+
+*.o
+pictures/
