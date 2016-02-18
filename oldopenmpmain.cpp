@@ -2,8 +2,8 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string>
-#include "timer.h"
-#include "img.h"
+#include "utils/timer.h"
+#include "image/img.h"
 #include <dirent.h>
 #include <vector>
 #include <sstream>

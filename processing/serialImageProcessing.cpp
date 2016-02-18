@@ -1,5 +1,4 @@
 #include "imageProcessing.h"
-#include "imageRaster.h"
 #include <string.h>
 #include <iostream>
 

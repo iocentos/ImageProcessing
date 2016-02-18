@@ -4,7 +4,7 @@
 
 #include "imgError.h"
 #ifdef DEBUG
-	#include "autoCounter.h"
+	#include "../utils/autoCounter.h"
 #endif
 /*Every image object has one ImageRaster and every reference 
 to width , height , samples per pixel and the raster pointer

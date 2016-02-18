@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
 #include "image.h"
-#include "TIFFimage.h"
-#include "JPEGimage.h"
-#include "PNGimage.h"
+#include "format/TIFFimage.h"
+#include "format/JPEGimage.h"
+#include "format/PNGimage.h"
 
 #ifdef DEBUG
 	#include "MemCheck.h"

@@ -10,7 +10,7 @@ CFLAGS = -Wall -c -g -O3 -fcilkplus
 P_LIBS = -lcilkrts -ldl -ltiff -ljpeg -lpng -lz
 
 #linker path
-LD_PATH = -L/home/centos/libraries/zlib/lib -L/home/centos/libraries/libtiff/lib -L/home/centos/libraries/libjpeg/lib -L/home/centos/libraries/libpng/lib
+LD_PATH = 
 #includes
 INCLUDE = -I/home/centos/libraries/
 #defines for serial program
@@ -41,28 +41,28 @@ cilkplus : $(P_OBJS)
 cilkmain.o : cilkmain.cpp
 	$(CC) $(CFLAGS) $(INCLUDE) $(DEFS) $< -o $@
 
-image.o : image.cpp
+image.o : image/image.cpp
 	$(CC) $(CFLAGS) $(INCLUDE) $(DEFS) $< -o $@
 
-TIFFimage.o : TIFFimage.cpp 
-	$(CC) $(CFLAGS) $(DEFS) $(INCLUDE) -L/home/subuntu/libraries/libtiff/lib $< -o $@
+TIFFimage.o : image/format/TIFFimage.cpp 
+	$(CC) $(CFLAGS) $(DEFS) $(INCLUDE) $< -o $@
 
-JPEGimage.o : JPEGimage.cpp 
-	$(CC) $(CFLAGS) $(DEFS) $(INCLUDE) -L/home/subuntu/libraries/libjpeg/lib $< -o $@
+JPEGimage.o : image/format/JPEGimage.cpp 
+	$(CC) $(CFLAGS) $(DEFS) $(INCLUDE) $< -o $@
 
-PNGimage.o : PNGimage.cpp
-	$(CC) $(CFLAGS) $(DEFS) $(INCLUDE) -L/home/subuntu/libraries/libpng/lib -L/home/subuntu/libraries/zlib/lib $< -o $@
+PNGimage.o : image/format/PNGimage.cpp
+	$(CC) $(CFLAGS) $(DEFS) $(INCLUDE) $< -o $@
 
-imageRaster.o : imageRaster.cpp
+imageRaster.o : image/imageRaster.cpp
 	$(CC) $(CFLAGS) $(DEFS) $< -o $@
 
-cilkImageProcessing.o : cilkImageProcessing.cpp
+cilkImageProcessing.o : processing/cilkImageProcessing.cpp
 	$(CC) $(CFLAGS) $(DEFS) $< -o $@
 	
-timer.o : timer.cpp
+timer.o : utils/timer.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
-MemCheck.o : MemCheck.cpp
+MemCheck.o : utils/MemCheck.cpp
 	$(CC) $(CFLAGS) $(DEFS) $< -o $@
 
 

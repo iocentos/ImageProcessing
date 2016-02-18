@@ -18,7 +18,7 @@ DEFS = -DOPENMP_PARALLEL
 #erase files
 RM = /bin/rm -f
 #parallel object files
-P_OBJS = TIFFimage.o JPEGimage.o PNGimage.o image.o imageRaster.o openmpImageProcessing.o oldopenmpmain.o timer.o MemCheck.o
+P_OBJS = TIFFimage.o JPEGimage.o PNGimage.o image.o ImageIOstream.o imageRaster.o openmpImageProcessing.o oldopenmpmain.o timer.o MemCheck.o
 #program name
 PROG = openmp
 
@@ -41,31 +41,31 @@ openmp : $(P_OBJS)
 oldopenmpmain.o : oldopenmpmain.cpp
 	$(CC) $(CFLAGS) $(INCLUDE) $(DEFS) $< -o $@
 
-image.o : image.cpp
+image.o : image/image.cpp
 	$(CC) $(CFLAGS) $(INCLUDE) $(DEFS) $< -o $@
 
-TIFFimage.o : TIFFimage.cpp 
+TIFFimage.o : image/format/TIFFimage.cpp 
 	$(CC) $(CFLAGS) $(DEFS) $(INCLUDE) $< -o $@
 
-JPEGimage.o : JPEGimage.cpp 
+JPEGimage.o : image/format/JPEGimage.cpp 
 	$(CC) $(CFLAGS) $(DEFS) $(INCLUDE) $< -o $@
 
-PNGimage.o : PNGimage.cpp
+PNGimage.o : image/format/PNGimage.cpp
 	$(CC) $(CFLAGS) $(DEFS) $(INCLUDE) $< -o $@
 
-imageRaster.o : imageRaster.cpp
+imageRaster.o : image/imageRaster.cpp
 	$(CC) $(CFLAGS) $(DEFS) $< -o $@
 
-ImageIOstream.o : ImageIOstream.cpp
+ImageIOstream.o : image/streaming/ImageIOstream.cpp
 	$(CC) $(CFLAGS) $(DEFS) $< -o $@
 
-openmpImageProcessing.o : openmpImageProcessing.cpp
+openmpImageProcessing.o : processing/openmpImageProcessing.cpp
 	$(CC) $(CFLAGS) $(DEFS) $< -o $@
 	
-timer.o : timer.cpp
+timer.o : utils/timer.cpp
 	$(CC) $(CFLAGS) $< -o $@
 
-MemCheck.o : MemCheck.cpp
+MemCheck.o : utils/MemCheck.cpp
 	$(CC) $(CFLAGS) $(DEFS) $< -o $@
 
 

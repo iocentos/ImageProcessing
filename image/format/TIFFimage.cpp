@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include "TIFFimage.h"
-#include "imageRaster.h"
 
 
 

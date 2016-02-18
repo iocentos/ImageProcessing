@@ -2,23 +2,16 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string>
-#include "timer.h"
-#include "img.h"
+#include "utils/timer.h"
+#include "image/img.h"
 #include <dirent.h>
 #include <vector>
 #include <sstream>
 #include <iomanip>
 
-
-
 #ifdef DEBUG
-	#include "MemCheck.h"
+	#include "utils/MemCheck.h"
 #endif
-
-
-
-
-
 
 /* 
 read contents of directory and place the names in vector*/
@@ -38,9 +31,6 @@ int GetDirFileNames( const std::string dir , std::vector<std::string>& files ) {
 }
 ////////////////////////////////////////////////////////////////
 
-
-
-
 int main( int argc , char** argv ){ 
 #ifdef DEBUG
 	MEM_ON();
@@ -50,8 +40,6 @@ int main( int argc , char** argv ){
 	//Total time timer
 	Timer totalTimer;
 	totalTimer.start();
-
-
 
 	std::cout<<"************************************************************"<<std::endl;
 	std::cout<<"*                      Serial execution                    *"<<std::endl;
@@ -82,9 +70,6 @@ int main( int argc , char** argv ){
 	try {
 	 	parallelTimer.start();
 		for( std::vector<std::string>::iterator it = imageName.begin() ; it < imageName.end() ; it++ ){
-				
-							
-
 			
 				std::cout<<(*it)<<"\n";
 				IMAGE::Image* oldImage = NULL;
@@ -225,13 +210,10 @@ int main( int argc , char** argv ){
 	std::cout<<"*************************************************************"<<std::endl;
 
 	//////////////////////////////////////////////////////////////////////////////////////
-	
-
 
 #ifdef DEBUG
 	MEM_OFF();
 #endif
-
 
 	return 0;
 }

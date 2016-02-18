@@ -1,7 +1,7 @@
 #ifndef _PNGIMAGE_H_
 #define _PNGIMAGE_H_
 
-#include "image.h"
+#include "../image.h"
 #include "png.h"
 
 namespace IMAGE {

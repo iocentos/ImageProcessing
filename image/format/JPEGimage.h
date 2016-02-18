@@ -1,7 +1,8 @@
 #ifndef _JPEG_IMAGE_H_
 #define _JPEG_IMAGE_H_
 
-#include "image.h"
+#include "../image.h"
+#include "../imageRaster.h"
 #include <stdio.h>
 #include "jpeglib.h"
 

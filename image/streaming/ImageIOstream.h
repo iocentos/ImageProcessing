@@ -5,11 +5,11 @@
 #include <iostream>
 #include <queue>
 #include <omp.h>
-#include "image.h"
-#include "imageProcessing.h"
+#include "../image.h"
+#include "../../processing/imageProcessing.h"
 #include <dirent.h>
 #include <vector>
-#include "imageRaster.h"
+#include "../imageRaster.h"
 #include <utility>
 
 

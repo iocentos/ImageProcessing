@@ -1,6 +1,5 @@
 #include "timer.h"
 
-
 void Timer::start() {
 
 	gettimeofday( &rS , NULL );
@@ -24,9 +23,6 @@ void Timer::stop() {
 
 
 }
-
-
-
 
 void Timer::printTimes() {
 

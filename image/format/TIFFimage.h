@@ -3,7 +3,8 @@
 
 #include <string>
 #include "tiffio.h"
-#include "image.h"
+#include "../image.h"
+#include "../imageRaster.h"
 
 #ifdef DEBUG
 	#include "autoCounter.h"

@@ -1,6 +1,7 @@
 #ifndef _SERIAL_IMAGE_PROCESSING_H_
 #define _SERIAL_IMAGE_PROCESSING_H_
 
+#include "../image/imageRaster.h"
 
 namespace IMAGE {
 

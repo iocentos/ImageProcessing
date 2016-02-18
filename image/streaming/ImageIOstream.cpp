@@ -1,6 +1,6 @@
 #include "ImageIOstream.h"
 #include <stdlib.h>
-#include "timer.h"
+#include "../../utils/timer.h"
 namespace IMAGE {
 
 
@@ -194,7 +194,7 @@ void ImageIOstream::processStreamWorker() {
 			t.start();
 			IMAGE::PROCESS::adjustBrightness( *tempPair.second , 80 );
 			t.stop();
-			time += t.diff_ms();
+			time += t.getReal();
 
 
 			#pragma omp critical (STAGE2)
