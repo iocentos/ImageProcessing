@@ -39,7 +39,7 @@ serial : $(S_OBJS)
 #%.o : %.cpp
 #	$(CC) $(CFLAGS) $(INCLUDE) $(DEFS) $<
 
-main.o : main.cpp
+main.o : serialMain.cpp
 	$(CC) $(CFLAGS) $(INCLUDE) $(DEFS) $< -o $@
 
 image.o : image/image.cpp

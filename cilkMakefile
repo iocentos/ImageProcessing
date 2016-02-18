@@ -38,7 +38,7 @@ cilkplus : $(P_OBJS)
 #%.o : %.cpp
 #	$(CC) $(CFLAGS) $(INCLUDE) $(DEFS) $<
 
-cilkmain.o : cilkmain.cpp
+cilkmain.o : cilkMain.cpp
 	$(CC) $(CFLAGS) $(INCLUDE) $(DEFS) $< -o $@
 
 image.o : image/image.cpp

@@ -38,7 +38,7 @@ openmp : $(P_OBJS)
 #%.o : %.cpp
 #	$(CC) $(CFLAGS) $(INCLUDE) $(DEFS) $<
 
-oldopenmpmain.o : oldopenmpmain.cpp
+oldopenmpmain.o : openmpMain.cpp
 	$(CC) $(CFLAGS) $(INCLUDE) $(DEFS) $< -o $@
 
 image.o : image/image.cpp
