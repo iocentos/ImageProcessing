@@ -1,18 +1,18 @@
 Parallel Image Processing using C++
 ===================================
 
-The project explores the advantages of multithreading in image processing while comparing between three different implementations. Several image processing functions have been implemented and are available in each implementation for comparison. 
+The project explores the advantages of multithreading in image processing while comparing between three different implementations. Several image processing functions have been implemented and are available in each implementation for comparison.
 
 Timers are used in all implementations in order to accurately measure the difference of implementations. At the end of each execution execution times are printed to the standard output.
 
 Serial implementaion
 --------------------
 
-In order to see the advantages of multithreading, the first execution mode is serial where a single operation is applied to a number of images and the processing is performed on a single thread. 
+In order to see the advantages of multithreading, the first execution mode is serial where a single operation is applied to a number of images and the processing is performed on a single thread.
 
 In order to compile the serial implementation run the following command
 ```sh
-$ make -f sefialMakefile
+$ make -f serialMakefile
 ```
 
 
@@ -60,7 +60,7 @@ The following image processing functions are provided for comparison.
 - convert Grey to RGB
 - convert RGB to Black and White
 - convert RGB to Sepia
-- rotate 
+- rotate
 - scale
 - blur
 
